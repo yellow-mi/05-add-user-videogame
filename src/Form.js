@@ -14,9 +14,12 @@ class Form extends Component {
 
   addUser = event => {
     event.preventDefault();
-    this.setState(oldState => ({
-      users: [...oldState.users, this.state.value],
-    }));
+    const fullInfo = [this.state.name, this.state.surname, this.state.username]
+    
+    this.setState({
+      users: [...this.state.users, 
+        fullInfo],
+    });
   };
 
   handleChange = event => {
