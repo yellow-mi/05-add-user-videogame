@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import GameForm from './GameForm'
 import GameList from './GameList'
+import { NAME, LASTNAME, USERNAME } from './constants'
 
 class Videogame extends Component {
   state = {
     user: {
-      name: '',
-      lastName: '',
-      userName: ''
+      [NAME]: '',
+      [LASTNAME]: '',
+      [USERNAME]: ''
     },
     gameList: []
   }
@@ -28,41 +29,19 @@ class Videogame extends Component {
   initUser = () => {
     this.setState(() => ({
       user: {
-        name: '',
-        lastName: '',
-        userName: ''
+        [NAME]: '',
+        [LASTNAME]: '',
+        [USERNAME]: ''
       }
     }))
   }
 
-  onNameChange = event => {
+  onInputChange = (event, inputField) => {
     this.setState((prevState) => {
       return {
         user: {
           ...prevState.user,
-          name: event.target.value
-        }
-      }
-    })
-  }
-
-  onLastNameChange = event => {
-    this.setState((prevState) => {
-      return {
-        user: {
-          ...prevState.user,
-          lastName: event.target.value
-        }
-      }
-    })
-  }
-
-  onUserNameChange = event => {
-    this.setState((prevState) => {
-      return {
-        user: {
-          ...prevState.user,
-          userName: event.target.value
+          [inputField]: event.target.value
         }
       }
     })
@@ -86,9 +65,7 @@ class Videogame extends Component {
         <GameForm
           onSubmit={this.handleSubmit}
           user={this.state.user}
-          onNameChange={this.onNameChange}
-          onLastNameChange={this.onLastNameChange}
-          onUserNameChange={this.onUserNameChange}
+          onInputChange={this.onInputChange}
           inputIsValid={this.formInputIsValid()} />
         <GameList list={this.state.gameList} />
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { NAME, LASTNAME, USERNAME } from './constants'
 
 export default function GameForm(props) {
   return (
@@ -11,7 +12,7 @@ export default function GameForm(props) {
           id="name"
           name="name"
           value={props.user.name}
-          onChange={props.onNameChange}
+          onChange={(event) => props.onInputChange(event, NAME)}
         />
         <label htmlFor="lastName">Lastname: </label>
         <input
@@ -20,7 +21,7 @@ export default function GameForm(props) {
           id="lastname"
           name="lastname"
           value={props.user.lastName}
-          onChange={props.onLastNameChange}
+          onChange={(e) => props.onInputChange(e, LASTNAME)}
         />
         <label htmlFor="userName">Username: </label>
         <input
@@ -29,7 +30,7 @@ export default function GameForm(props) {
           id="username"
           name="username"
           value={props.user.userName}
-          onChange={props.onUserNameChange}
+          onChange={(e) => props.onInputChange(e, USERNAME)}
         />
         <button type="submit" disabled={!props.inputIsValid}>add user</button>
       </form>
