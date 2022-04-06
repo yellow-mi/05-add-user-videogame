@@ -6,7 +6,7 @@ export default function GameList(props) {
       <ol>
         {
           props.list.map((user, index) =>
-            <li key={index}>{user}</li>
+            <li key={index}>Name: {user.name}, Lastname: {user.lastName}, Username: {user.userName}</li>
           )
         }
       </ol>

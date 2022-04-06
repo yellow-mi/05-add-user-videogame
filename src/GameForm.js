@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function GameForm(props) {
-  console.log(props.user.name)
   return (
     <div className="game-form">
       <form onSubmit={props.onSubmit}>
@@ -13,6 +12,24 @@ export default function GameForm(props) {
           name="name"
           value={props.user.name}
           onChange={props.onNameChange}
+        />
+        <label htmlFor="lastName">Lastname: </label>
+        <input
+          type="text"
+          placeholder="Insert your lastname"
+          id="lastname"
+          name="lastname"
+          value={props.user.lastName}
+          onChange={props.onLastNameChange}
+        />
+        <label htmlFor="userName">Username: </label>
+        <input
+          type="text"
+          placeholder="Insert your username"
+          id="username"
+          name="username"
+          value={props.user.userName}
+          onChange={props.onUserNameChange}
         />
         <button type="submit" disabled={!props.inputIsValid}>add user</button>
       </form>
