@@ -11,20 +11,7 @@ class Videogame extends Component {
       [USERNAME]: '',
       [NUMBGAMES]: 0
     },
-    gameList: [],
-    yesGames: false
-  }
-
-  handleShow = () => {
-    this.setState({
-      yesGames: true
-    })
-  }
-
-  handleHide = () => {
-    this.setState({
-      yesGames: false
-    })
+    gameList: []
   }
 
   handleSubmit = event => {
