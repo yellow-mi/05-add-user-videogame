@@ -1,5 +1,5 @@
 import React from "react";
-import { NAME, LASTNAME, USERNAME } from './constants'
+import { NAME, LASTNAME, USERNAME, NUMBGAMES } from './constants'
 
 export default function GameForm(props) {
   return (
@@ -31,6 +31,15 @@ export default function GameForm(props) {
           name="username"
           value={props.user.userName}
           onChange={(e) => props.onInputChange(e, USERNAME)}
+        />
+        <label htmlFor="numbGames">Numb of Games: </label>
+        <input
+          type="number"
+          placeholder="Insert the number of games"
+          id="numbgames"
+          name="numbgames"
+          value={props.user.numbGames}
+          onChange={(e) => props.onInputChange(e, NUMBGAMES)}
         />
         <button type="submit" disabled={!props.inputIsValid}>add user</button>
       </form>

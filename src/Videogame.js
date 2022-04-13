@@ -1,16 +1,30 @@
 import React, { Component } from 'react'
 import GameForm from './GameForm'
 import GameList from './GameList'
-import { NAME, LASTNAME, USERNAME } from './constants'
+import { NAME, LASTNAME, USERNAME, NUMBGAMES } from './constants'
 
 class Videogame extends Component {
   state = {
     user: {
       [NAME]: '',
       [LASTNAME]: '',
-      [USERNAME]: ''
+      [USERNAME]: '',
+      [NUMBGAMES]: 0
     },
-    gameList: []
+    gameList: [],
+    yesGames: false
+  }
+
+  handleShow = () => {
+    this.setState({
+      yesGames: true
+    })
+  }
+
+  handleHide = () => {
+    this.setState({
+      yesGames: false
+    })
   }
 
   handleSubmit = event => {
@@ -31,7 +45,8 @@ class Videogame extends Component {
       user: {
         [NAME]: '',
         [LASTNAME]: '',
-        [USERNAME]: ''
+        [USERNAME]: '',
+        [NUMBGAMES]: 0
       }
     }))
   }
@@ -48,8 +63,8 @@ class Videogame extends Component {
   }
 
   formInputIsValid = () => {
-    const { name, lastName, userName } = this.state.user
-    return !!name && !!lastName && !!userName && this.validUsername()
+    const { name, lastName, userName, numbGames } = this.state.user
+    return !!name && !!lastName && !!userName && !!numbGames && this.validUsername()
   }
 
   validUsername = () => {
@@ -67,7 +82,8 @@ class Videogame extends Component {
           user={this.state.user}
           onInputChange={this.onInputChange}
           inputIsValid={this.formInputIsValid()} />
-        <GameList list={this.state.gameList} />
+        <GameList 
+        list={this.state.gameList} />
       </div>
     )
   }
